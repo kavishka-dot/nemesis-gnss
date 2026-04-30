@@ -4,7 +4,6 @@
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11-blue)](https://pypi.org/project/nemesis-gnss)
-[![PyPI](https://img.shields.io/pypi/v/nemesis-gnss)](https://pypi.org/project/nemesis-gnss)
 [![IEEE ACES](https://img.shields.io/badge/paper-IEEE%20ACES-green)](https://ieeexplore.ieee.org)
 
 NEMESIS-GNSS is a research-grade, pip-installable framework for GPS L1 C/A spoofing detection using self-supervised wavelet-domain learning. It is designed to be intuitive, reproducible, and easy to use with your own SDR-captured IQ data.
