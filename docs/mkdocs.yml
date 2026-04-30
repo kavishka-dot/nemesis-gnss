@@ -1,0 +1,48 @@
+site_name: NEMESIS-GNSS
+site_description: Wavelet JEPA GNSS Spoofing Detection Framework
+site_url: https://kavishka-dot.github.io/nemesis-gnss
+repo_url: https://github.com/kavishka-dot/nemesis-gnss
+repo_name: kavishka-dot/nemesis-gnss
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: cyan
+    accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting_started/installation.md
+    - Quickstart: getting_started/quickstart.md
+    - Dataset Format: getting_started/dataset.md
+  - User Guide:
+    - Training: guide/training.md
+    - Evaluation: guide/evaluation.md
+    - Visualization: guide/visualization.md
+    - NEMESIS-Shield: guide/shield.md
+    - NEMESIS-Nav: guide/nav.md
+  - CLI Reference: cli.md
+  - API Reference:
+    - nemesis.detector: api/detector.md
+    - nemesis.data: api/data.md
+    - nemesis.models: api/models.md
+    - nemesis.train: api/train.md
+    - nemesis.eval: api/eval.md
+    - nemesis.viz: api/viz.md
+    - nemesis.nav: api/nav.md
+  - Papers: papers.md
+  - Changelog: changelog.md

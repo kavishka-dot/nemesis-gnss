@@ -1,0 +1,26 @@
+# nemesis_base.yaml
+# Default configuration for NEMESIS core training
+
+model:
+  input_channels: 2         # I + Q
+  embed_dim: 256
+  base_filters: 32
+  num_classes: 4            # Clear Sky, Meaconing, Slow Drift, Adversarial
+
+data:
+  segment_length: 4096      # complex samples per segment
+  val_split: 0.2
+  num_workers: 0
+  wavelet: morl             # PyWavelets wavelet name
+  scales: 64
+  sampling_rate: 2046000    # Hz (ADALM-Pluto default for GPS L1)
+
+training:
+  pretrain_epochs: 20
+  pretrain_lr: 0.001
+  probe_epochs: 50
+  probe_lr: 0.001
+  batch_size: 32
+  weight_decay: 0.0001
+  focal_gamma: 2.0
+  early_stopping_patience: 10

@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nemesis-gnss"
+version = "1.0.0"
+description = "NEMESIS: Wavelet-domain JEPA-based GNSS spoofing detection framework"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Kavishka", email = "kavishka@example.com" }
+]
+keywords = ["gnss", "spoofing", "detection", "gps", "signal-processing", "deep-learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pywavelets>=1.4.0",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "plotly>=5.15.0",
+    "pyyaml>=6.0",
+    "typer[all]>=0.9.0",
+    "rich>=13.0.0",
+    "tqdm>=4.65.0",
+    "joblib>=1.3.0",
+    "pandas>=2.0.0",
+]
+
+[project.optional-dependencies]
+shield = [
+    "torchvision>=0.15.0",
+]
+nav = [
+    "filterpy>=1.4.5",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+    "mkdocstrings[python]>=0.23.0",
+]
+all = [
+    "nemesis-gnss[shield]",
+    "nemesis-gnss[nav]",
+]
+
+[project.scripts]
+nemesis = "nemesis.cli.main:app"
+
+[project.urls]
+Homepage = "https://github.com/kavishka-dot/nemesis-gnss"
+Documentation = "https://kavishka-dot.github.io/nemesis-gnss"
+Repository = "https://github.com/kavishka-dot/nemesis-gnss"
+"Bug Tracker" = "https://github.com/kavishka-dot/nemesis-gnss/issues"
+"Paper (NEMESIS)" = "https://ieeexplore.ieee.org"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nemesis*"]
+
+[tool.setuptools.package-data]
+nemesis = ["configs/*.yaml", "py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.9"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

@@ -1,0 +1,33 @@
+# nemesis_nav.yaml
+# Configuration for NEMESIS-Nav EKF integration
+# Requires: pip install nemesis-gnss[nav]
+
+model:
+  input_channels: 2
+  embed_dim: 256
+  base_filters: 32
+  num_classes: 4
+
+nav:
+  beta: 12.0                # noise inflation gain
+  tau_s: 0.5                # smoothing time constant (s)
+  process_noise: 1.0        # EKF process noise std (m)
+  meas_noise: 5.0           # EKF baseline measurement noise std (m)
+
+data:
+  segment_length: 4096
+  val_split: 0.2
+  num_workers: 0
+  wavelet: morl
+  scales: 64
+  sampling_rate: 2046000
+
+training:
+  pretrain_epochs: 20
+  pretrain_lr: 0.001
+  probe_epochs: 50
+  probe_lr: 0.001
+  batch_size: 32
+  weight_decay: 0.0001
+  focal_gamma: 2.0
+  early_stopping_patience: 10

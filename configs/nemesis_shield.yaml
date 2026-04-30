@@ -1,0 +1,28 @@
+# nemesis_shield.yaml
+# Configuration for NEMESIS-Shield (NEMESISv2) with SE channel attention
+# Requires: pip install nemesis-gnss[shield]
+
+model:
+  input_channels: 6         # multichannel scalogram
+  embed_dim: 256
+  base_filters: 32
+  num_classes: 4
+  se_reduction: 16
+
+data:
+  segment_length: 4096
+  val_split: 0.2
+  num_workers: 0
+  wavelet: morl
+  scales: 64
+  sampling_rate: 2046000
+
+training:
+  pretrain_epochs: 25
+  pretrain_lr: 0.001
+  probe_epochs: 60
+  probe_lr: 0.001
+  batch_size: 16
+  weight_decay: 0.0001
+  focal_gamma: 2.0
+  early_stopping_patience: 12
